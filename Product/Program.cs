@@ -13,6 +13,7 @@ namespace Product
             int amountProducts = int.Parse(Console.ReadLine());
             for (int i = 1; i <= amountProducts; i++)
             {
+                Console.WriteLine("Product #{0} data: ", i);
                 Console.Write("Common, used or imported (c/u/i)? ");
                 char kind = char.Parse(Console.ReadLine());
                 Console.Write("Name: ");
@@ -21,7 +22,7 @@ namespace Product
                 double price = double.Parse(Console.ReadLine());
                 if (kind == 'u')
                 {
-                    Console.Write("Manufacture date (DD/MM/YYYY");
+                    Console.Write("Manufacture date (DD/MM/YYYY): ");
                     DateTime manufactureDate = DateTime.Parse(Console.ReadLine());
                     UsedProduct aux = new UsedProduct(name, price, manufactureDate);
                     list.Add(aux);
@@ -42,7 +43,7 @@ namespace Product
             Console.WriteLine("\n PRICE TAGS");
             foreach (Product_ product in list)
             {
-                product.Pricetag();
+                Console.WriteLine(product.Pricetag()); ;
             }
         }
     }

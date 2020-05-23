@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace Product.Entities
 {
@@ -17,7 +18,12 @@ namespace Product.Entities
         }
         public sealed override string Pricetag()
         {
-            return base.Pricetag();
+            StringBuilder returnPriceTag = new StringBuilder();
+            returnPriceTag.Append(Name + " (used) $ ");
+            returnPriceTag.Append(Price.ToString("F2", CultureInfo.InvariantCulture));
+            returnPriceTag.Append(" (Manufacture date: ");
+            returnPriceTag.Append(ManufactureDate.ToString("dd/MM/yyyy") + ")");
+            return returnPriceTag.ToString();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Globalization;
 
 namespace Product.Entities
 {
@@ -21,7 +23,10 @@ namespace Product.Entities
 
         public virtual string Pricetag()
         {
-            return " ";
+            StringBuilder returnPriceTag = new StringBuilder();
+            returnPriceTag.Append(Name + " $ ");
+            returnPriceTag.Append(Price.ToString("F2", CultureInfo.InvariantCulture));
+            return returnPriceTag.ToString();
         }
     }
 }

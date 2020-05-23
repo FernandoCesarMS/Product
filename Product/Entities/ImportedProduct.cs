@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace Product.Entities
 {
@@ -19,7 +20,15 @@ namespace Product.Entities
 
         public sealed override string Pricetag()
         {
-            return base.Pricetag();
+            StringBuilder returnPriceTag = new StringBuilder();
+            returnPriceTag.Append(Name + " $ ");
+            returnPriceTag.Append(TotalPrice().ToString("F2", CultureInfo.InvariantCulture));
+            returnPriceTag.Append(" (Customs fee: $ " + CustomsFee.ToString("F2", CultureInfo.InvariantCulture) + ")");
+            return returnPriceTag.ToString();
+        }
+        public double TotalPrice()
+        {
+            return Price + CustomsFee;
         }
     }
 }
