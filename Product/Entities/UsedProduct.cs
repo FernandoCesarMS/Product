@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Product.Entities
 {
-    class UsedProduct : Product
+    class UsedProduct : Product_
     {
         public DateTime ManufactureDate { get; set; }
 

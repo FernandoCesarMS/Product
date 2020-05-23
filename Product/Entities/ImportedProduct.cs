@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Product.Entities
 {
-    class ImportedProduct : Product
+    class ImportedProduct : Product_
     {
         public double CustomsFee { get; set; }
 
